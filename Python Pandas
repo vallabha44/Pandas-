@@ -509,7 +509,91 @@ third-sem
 61	Harry	hughie	47	57	    70	70	     61	61	    61	61
 62	Homelander Leo	39	53	    54	54	     62	62	    62	62
 
+# In[122]:Creating a DataFrame by passing a NumPy array, with a datetime index and labeled columns:
+dates = pd.date_range('20130101', periods=6)
+dates
+Output:
+DatetimeIndex(['2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04',
+'2013-01-05', '2013-01-06'],
+dtype='datetime64[ns]', freq='D')
+
+#In[123]:Creating a dataframe with random values having 6-rows and 4-columns with column names ABCD using numpy and pandas
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+df
+Output:
+		   A	            B	            C	          D
+2013-01-01	0.390843	-0.429201	-0.274391	0.303282
+2013-01-02	-0.107065	-1.519335	-0.613291	-0.189827
+2013-01-03	-0.346594	0.252260	0.469015	-0.138250
+2013-01-04	0.023063	0.835076	0.279871	0.407193
+2013-01-05	-1.418383	-1.167264	-0.535145	1.109351
+2013-01-06	0.156291	1.050612	0.329926	-0.070620
+
+#In[2]: Adding 1 to each value in a dataset
+df.add(1)
+Output:
+
+                   A	            B	            C	           D
+2013-01-01	1.390843	0.570799	0.725609	1.303282
+2013-01-02	0.892935	-0.519335	0.386709	0.810173
+2013-01-03	0.653406	1.252260	1.469015	0.861750
+2013-01-04	1.023063	1.835076	1.279871	1.407193
+2013-01-05	-0.418383	-0.167264	0.464855	2.109351
+2013-01-06	1.156291	2.050612	1.329926	0.929380
 
 
+#In[3]: Displaying single column of data by calling its column name
+df.A
+Output:
+2013-01-01   -0.429201
+2013-01-02   -1.519335
+2013-01-03    0.252260
+2013-01-04    0.835076
+2013-01-05   -1.167264
+2013-01-06    1.050612
+Freq: D, Name: B, dtype: float64
+			
+#In[4]: Adding prefix to column names
+df.add_prefix('col-')
+Output:
+		  col-A		  col-B		  col-C		  col-D
+2013-01-01	0.390843	-0.429201	-0.274391	0.303282
+2013-01-02	-0.107065	-1.519335	-0.613291	-0.189827
+2013-01-03	-0.346594	0.252260	0.469015	-0.138250
+2013-01-04	0.023063	0.835076	0.279871	0.407193
+2013-01-05	-1.418383	-1.167264	-0.535145	1.109351
+2013-01-06	0.156291	1.050612	0.329926	-0.070620
 
+#In[5]: Adding suffix to column names
+df.add_suffix('-column')
+Output:
+	         A-column	   B-column	  C-column	D-column
+2013-01-01	0.390843	-0.429201	-0.274391	0.303282
+2013-01-02	-0.107065	-1.519335	-0.613291	-0.189827
+2013-01-03	-0.346594	0.252260	0.469015	-0.138250
+2013-01-04	0.023063	0.835076	0.279871	0.407193
+2013-01-05	-1.418383	-1.167264	-0.535145	1.109351
+2013-01-06	0.156291	1.050612	0.329926	-0.070620
+
+#In[34]: Displaying the values in the given range using clip
+df.clip(0,1)  # Shows the values between 0 and 1 and the remaining are kept to zero
+Output:
+	            A	            B	             C	            D
+2013-01-01	0.390843	0.000000	0.000000	0.303282
+2013-01-02	0.000000	0.000000	0.000000	0.000000
+2013-01-03	0.000000	0.252260	0.469015	0.000000
+2013-01-04	0.023063	0.835076	0.279871	0.407193
+2013-01-05	0.000000	0.000000	0.000000	1.000000
+2013-01-06	0.156291	1.000000	0.329926	0.000000
+
+#In[35]:applying functions to the columns like sum, squareroot(sqrt),
+df.apply(np.sum,axis=1)  # Adds all the columns and displays the final result in the last column
+Output:
+2013-01-01   -0.009466
+2013-01-02   -2.429518
+2013-01-03    0.236431
+2013-01-04    1.545203
+2013-01-05   -2.011442
+2013-01-06    1.466209
+Freq: D, dtype: float64
 

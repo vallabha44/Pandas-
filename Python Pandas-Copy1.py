@@ -63,10 +63,10 @@ Output:
 student-name	1st-sem	2nd-sem
 0	bobby	       45   	34
 1	Oliver	       56       36
-2	Harry	       47	    45
-3	George	       67	    67
-4	Jack	       35	    63
-5	Leo	           53	    55
+2	Harry	       47	45
+3	George	       67	67
+4	Jack	       35	63
+5	Leo	       53	55
 
 
 # In[11]: Renaming the columns
@@ -78,7 +78,7 @@ Output:	stdnt-name	first-sem	second-sem
 2	    Harry	        47	        45
 3	    George	        67	        67
 4	    Jack	        35	        63
-5	    Leo	            53	        55
+5	    Leo	            	53	        55
 
 # # Pandas Methods
 
@@ -111,8 +111,8 @@ dtype: object
 df.describe()
 Output:
         first-sem	second-sem
-count   6.00000	    6.000000
-mean	50.50000	50.000000
+count       6.00000	6.000000
+mean	    50.50000	50.000000
 std	    10.87658	13.856406
 min	    35.00000	34.000000
 25%	    45.50000	38.250000
@@ -147,7 +147,7 @@ Output:
 2	Harry	        47	        45
 3	George	        67	        67
 4	Jack	        35	        63
-5	Leo	            53	        55
+5	Leo	        53	        55
 
 # In[19]:
 df.tail(4)
@@ -156,7 +156,7 @@ Output:
 2	Harry	        47	        45
 3	George	        67	        67
 4	Jack	        35	        63
-5	Leo	            53	        55
+5	Leo	        53	        55
 
 # In[20]:
 df.mean()
@@ -184,7 +184,7 @@ df.sample(n=2)
 Output:
     stdnt-name	first-sem	second-sem
 3	George	        67	        67
-5	Leo	            53	        55
+5	Leo	        53	        55
 
 # In[24]: Displays 5 rows randomly
 df.sample(n=5)
@@ -193,7 +193,7 @@ Output:
 3	George	        67	       67
 2	Harry	        47	       45
 4	Jack	        35	       63
-5	Leo	            53	       55
+5	Leo	        53	       55
 1	Oliver	        56	       36
 
 # In[25]:
@@ -209,7 +209,7 @@ Output:
     stdnt-name	first-sem	second-sem
 3	George	        67	        67
 1	Oliver	        56	        36
-5	Leo	            53	        55
+5	Leo	        53	        55
 2	Harry	        47	        45
 0	bobby	        45	        34
 4	Jack	        35	        63
@@ -221,7 +221,7 @@ Output:
 4	Jack	        35	        63
 0	bobby	        45	        34
 2	Harry	        47	        45
-5	Leo	            53	        55
+5	Leo	        53	        55
 1	Oliver	        56	        36
 3	George	        67	        67
     
@@ -264,7 +264,7 @@ Output:
 2	Harry	        47	        45
 3	George	        67	        67
 4	Jack	        35	        63
-5	Leo	            53	        55
+5	Leo	        53	        55
 
 # In[32]:Creating a new column
 import numpy as np
@@ -277,7 +277,7 @@ Output:
 2	Harry	        47	        45	        NaN
 3	George	        67	        67	        35.0
 4	Jack	        35	        63	        55.0
-5	Leo	            53	        55	        47.0
+5	Leo	        53	        55	        47.0
 
 # In[33]:
 df.isna()
@@ -293,7 +293,7 @@ stdnt-name	first-sem	second-sem	  third-sem
 # In[34]:
 df.notnull()
 Output:
-	stdnt-name	first-sem	second-sem	third-sem
+	stdnt-name	first-sem second-sem	third-sem
 0	True	        True	    True	    True
 1	True	        True	    True	    True
 2	True	        True	    True	    False
@@ -310,7 +310,7 @@ Output:
 2	Harry	        47	        45	        45.0
 3	George	        67	        67	        35.0
 4	Jack	        35	        63	        55.0
-5	Leo	            53	        55	        47.0
+5	Leo	        53	        55	        47.0
 
 # In[36]:Dropping specified row
 df.drop(3)
@@ -320,7 +320,7 @@ Output:
 1	Oliver	        56	        36	        56.0
 2	Harry	        47	        45	        NaN
 4	Jack	        35	        63	        55.0
-5	Leo	            53	        55	        47.0
+5	Leo	        53	        55	        47.0
 
 # In[37]:Drops the row which is having an empty value in dataset
 df.dropna()
@@ -330,7 +330,7 @@ Output:
 1	Oliver	        56	        36	        56.0
 3	George	        67	        67	        35.0
 4	Jack	        35	        63	        55.0
-5	Leo	            53	        55	        47.0
+5	Leo	        53	        55	        47.0
 
 
 # In[38]:Drops the column which is having an empty values in dataset
@@ -339,10 +339,10 @@ Output:
 student-name	firstt-sem	second-sem
 0	bobby	       45   	34
 1	Oliver	       56       36
-2	Harry	       47	    45
-3	George	       67	    67
-4	Jack	       35	    63
-5	Leo	           53	    55
+2	Harry	       47	45
+3	George	       67	67
+4	Jack	       35	63
+5	Leo	       53	55
 
 
 # In[39]:
@@ -353,7 +353,7 @@ Output:
 1	Oliver	        56	        36	        56.0
 3	George	        67	        67	        35.0
 4	Jack	        35	        63	        55.0
-5	Leo	            53	        55	        47.0
+5	Leo	        53	        55	        47.0
 
 
 # In[40]: It will work only when all the values in a row are 'NaN'
@@ -364,7 +364,7 @@ Output:
 1	Oliver	        56	        36	        56.0
 2	Harry	        47	        45	        NaN
 4	Jack	        35	        63	        55.0
-5	Leo	            53	        55	        47.0
+5	Leo	        53	        55	        47.0
 
 
 # In[114]:
@@ -387,13 +387,13 @@ Output:
 2	Harry	        47	        70	        61
 3	George	        67	        51	        45
 4	Jack	        35	        49	        37
-5	Leo	            53	        54	        62
+5	Leo	        53	        54	        62
 6	charlie	        35	        37	        51
 7	butcher	        46	        46	        43
 8	hughie	        57	        70	        61
-9	MM	            59	        51	        45
+9	MM	        59	        51	        45
 10	Kimiko	        68	        49	        37
-11	Homelander	    39	        54	        62
+11	Homelander	39	        54	        62
 
 # In[115]:
 result = df.append(de)
@@ -405,13 +405,13 @@ Output:
 2	Harry	        47	        70	        61
 3	George	        67	        51	        45
 4	Jack	        35	        49	        37
-5	Leo	            53	        54	        62
+5	Leo	        53	        54	        62
 6	charlie	        35	        37	        51
 7	butcher	        46	        46	        43
 8	hughie	        57	        70	        61
-9	MM	            59	        51	        45
+9	MM	        59	        51	        45
 10	Kimiko	        68	        49	        37
-11	Homelander	    39	        54	        62
+11	Homelander	39	        54	        62
 
 
 
@@ -432,13 +432,13 @@ Output:
 2	Harry	        47	        70	        61	        61
 3	George	        67	        51	        45	        45
 4	Jack	        35	        49	        37	        37
-5	Leo	            53	        54	        62	        62
+5	Leo	        53	        54	        62	        62
 6	charlie	        35	        37	        51	        51
 7	butcher	        46	        46	        43	        43
 8	hughie	        57	        70	        61	        61
-9	MM	            59	        51	        45	        45
+9	MM	        59	        51	        45	        45
 10	Kimiko	        68	        49	        37	        37
-11	Homelander	    39	        54	        62	        62
+11	Homelander	39	        54	        62	        62
 
 
 # In[118]:
@@ -451,13 +451,13 @@ Output:
 2	Harry	        47	        70	        61	        61	        61
 3	George	        67	        51	        45	        45	        45
 4	Jack	        35	        49	        37	        37	        37
-5	Leo	            53	        54	        62	        62	        62
+5	Leo	        53	        54	        62	        62	        62
 6	charlie	        35	        37	        51	        51	        51
 7	butcher	        46	        46	        43	        43	        43
 8	hughie	        57	        70	        61	        61	        61
-9	MM	            59	        51	        45	        45	        45
+9	MM	        59	        51	        45	        45	        45
 10	Kimiko	        68	        49	        37	        37	        37
-11	Homelander	    39	        54	        62	        62	        62
+11	Homelander	39	        54	        62	        62	        62
     
 # In[122]:
 result.rename(columns={'fifth-sem':'5th-sem'})
@@ -468,13 +468,13 @@ Output:
 2	Harry	        47	        70	        61	        61	        61
 3	George	        67	        51	        45	        45	        45
 4	Jack	        35	        49	        37	        37	        37
-5	Leo	            53	        54	        62	        62	        62
+5	Leo	        53	        54	        62	        62	        62
 6	charlie	        35	        37	        51	        51	        51
 7	butcher	        46	        46	        43	        43	        43
 8	hughie	        57	        70	        61	        61	        61
-9	MM	            59	        51	        45	        45	        45
+9	MM	        59	        51	        45	        45	        45
 10	Kimiko	        68	        49	        37	        37	        37
-11	Homelander	    39	        54	        62	        62	        62
+11	Homelander	39	        54	        62	        62	        62
     
     
 # In[123]:
@@ -488,26 +488,26 @@ Output:
 2	Harry	        47	        70	        61	        61	        61	        47	        47	        47
 3	George	        67	        51	        45	        45	        45	        67	        67	        67
 4	Jack	        35	        49	        37	        37	        37	        35	        35	        35
-5	Leo	            53	        54	        62	        62	        62	        53	        53	        53
+5	Leo	        53	        54	        62	        62	        62	        53	        53	        53
 6	charlie	        35	        37	        51	        51	        51	        45	        45	        45
 7	butcher	        46	        46	        43	        43	        43	        56	        56	        56
 8	hughie	        57	        70	        61	        61	        61	        47	        47	        47
-9	MM	            59	        51	        45	        45	        45	        67	        67	        67
+9	MM	        59	        51	        45	        45	        45	        67	        67	        67
 10	Kimiko	        68	        49	        37	        37	        37	        35	        35	        35
-11	Homelander	    39	        54	        62	        62	        62	        53	        53	        53    
+11	Homelander	39	        54	        62	        62	        62	        53	        53	        53    
 
 # In[121]:
 result.groupby(['third-sem']).agg([min,max])
 Output:
 	stdnt-name	first-sem	second-sem	fourth-sem	fifth-sem
-       min	max	    min	max	    min	max	    min	max	    min	max
+       min	max	min	max	    min	max	    min	max	    min	max
 third-sem										
 37	Jack	Kimiko	35	68	    49	49	     37	37	    37	37
 43	Oliver	butcher	46	56	    46	46	     43	43	    43	43
-45	George	MM	    59	67	    51	51	     45	45	    45	45
+45	George	MM	59	67	    51	51	     45	45	    45	45
 51	bobby	charlie	35	45	    37	37	     51	51	    51	51
 61	Harry	hughie	47	57	    70	70	     61	61	    61	61
-62	Homelander	Leo	39	53	    54	54	     62	62	    62	62
+62	Homelander Leo	39	53	    54	54	     62	62	    62	62
 
 
 
